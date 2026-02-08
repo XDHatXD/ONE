@@ -183,6 +183,77 @@
       </button>
     </div>
   </section>
+<section class="article">
+  <div class="container article-grid">
+    
+    <!-- Photo -->
+    <div class="article-image">
+      <img src="photo.jpg" alt="Article related image">
+    </div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+      <h2>Article Title Goes Here</h2>
+      <p class="article-meta">By Your Name · March 2026</p>
+
+      <p>
+        This is the first paragraph of your article. You can write as much
+        content as you like here. It will automatically wrap and stay readable
+        on all screen sizes.
+      </p>
+
+      <p>
+        Add more paragraphs to tell your story, explain your ideas, or publish
+        an essay. This section is perfect for personal writing, blog-style
+        posts, or announcements.
+      </p>
+    </div>
+
+  </div>
+</section>
+.article {
+  padding: 5rem 1.5rem;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.article-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.article-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-content p {
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+}
+photo.jpg
+<img src="photo.jpg" alt="Article related image">
 
   <!-- ABOUT -->
   <section class="about">
@@ -225,3 +296,4 @@
 
 </body>
 </html>
+
