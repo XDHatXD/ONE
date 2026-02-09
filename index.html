@@ -16,6 +16,17 @@
       --radius: 16px;
       --max-width: 1100px;
     }
+    .article-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* takes most of the screen height */
+}
+.article-image img {
+  width: 100%;
+  max-width: 900px;
+}
+
 
     * {
       box-sizing: border-box;
@@ -28,6 +39,14 @@
       background: linear-gradient(180deg, #020617, #0f172a);
       color: var(--text);
       line-height: 1.6;
+      <section class="article">
+  <div class="container article-grid">
+    
+  
+
+  </div>
+</section>
+
     }
 
     a {
@@ -165,53 +184,7 @@
 
       section {
         padding: 4rem 1.2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Hi, I’m XD Hu</h1>
-      <p>
-        Let's explore the beauty of Chinese literature togather. I will share my thoughts for the books I read. 
-      </p>
-      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
-        Contact Me
-      </button>
-    </div>
-  </section>
-<section class="article">
-  <div class="container article-grid">
-    
-    <!-- Photo -->
-    <div class="article-image">
-      <img src="photo.jpg" alt="Article related image">
-    </div>
-
-    <!-- Article Content -->
-    <div class="article-content">
-      <h2>Article Title Goes Here</h2>
-      <p class="article-meta">By Your Name · March 2026</p>
-
-      <p>
-        This is the first paragraph of your article. You can write as much
-        content as you like here. It will automatically wrap and stay readable
-        on all screen sizes.
-      </p>
-
-      <p>
-        Add more paragraphs to tell your story, explain your ideas, or publish
-        an essay. This section is perfect for personal writing, blog-style
-        posts, or announcements.
-      </p>
-    </div>
-
-  </div>
-</section>
-.article {
+      }.article {
   padding: 5rem 1.5rem;
 }
 
@@ -252,8 +225,188 @@
     grid-template-columns: 1fr;
   }
 }
-photo.jpg
-<img src="photo.jpg" alt="Article related image">
+
+    }
+ .article {
+  padding: 5rem 1.5rem;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.article-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.article-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-content p {
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.article-image img {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.poem {
+  min-height: 80vh;              /* take most of the screen */
+  display: flex;
+  justify-content: center;       /* horizontal center */
+  align-items: center;           /* vertical center */
+  padding: 2rem;
+}
+
+.poem-box {
+  max-width: 700px;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 2;
+  color: var(--text);
+  font-style: italic;
+}
+
+ </style>
+</head>
+<body>
+<section class="article">
+  <div class="container article-grid">
+    
+    <!-- Photo -->
+    <div class="article-image">
+      <img src="flowerphoto.jpeg" alt="My favorite flower">
+    </div>
+
+    <!-- Article Content -->
+    <div class="article-content">
+      <h2>Article Title Goes Here</h2>
+      <p class="article-meta">By Your Name · March 2026</p>
+
+      <p>
+        This is the first paragraph of your article. You can write as much
+        content as you like here. It will automatically wrap and stay readable
+        on all screen sizes.
+      </p>
+
+      <p>
+        Add more paragraphs to tell your story, explain your ideas, or publish
+        an essay. This section is perfect for personal writing, blog-style
+        posts, or announcements.
+      </p>
+    </div>
+    <!-- Article Content -->
+    <div class="article-content">
+      <h2>生活的乐趣</h2>
+      <p class="article-meta"> 2026三月</p>
+
+      <p>
+        <section class="poem">
+  <div class="poem-box">
+    <p>
+      鸟去栖息了，<br>
+只有树还在那里；<br>
+树的冠顶是鸟的云，<br>
+鸟的镤下树的羽；<br>
+还有大嘴鱼和风，<br>
+在树腰间游来游去；<br>
+云会飘去树的问侯，<br>
+风会带来鸟的歌吗；<br>
+只要树还在那里，<br>
+鸟们就会回的；<br>
+不是星期三，<br>
+便是星期四<br>
+    </p>
+  </div>
+</section>
+      </p>
+
+      <p>
+        
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- Photo -->
+    <div class="article-image">
+      <img src="seattlephoto.JPG" alt="My favorite flower">
+    </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>三家春</h1>
+      <p>
+        <section class="poem">
+  <div class="poem-box">
+    <p>杨<br>
+        知青七年，初识桑麻。<br>
+何幸运，学塔攀爬。<br>
+书生意气，负籍天涯。<br>
+读一箱书，一博士，一学渣。<br><br>
+
+自诩精英，实为井蛙。<br>
+抚养恩，何曾报答？<br>
+日已西斜，茅屋篱笆，<br>
+养一池鱼，一畦菜，一坛花。<br><br>
+
+
+彭<br>
+一键轻轻，黄钟齐鸣。<br>
+出高塔，空谷迴音。<br>
+闲人骚客，志在山林。<br>
+欲护其生，持其态，存其韵。<br><br>
+
+择一小径，且行且停。<br>
+小池边，隔窗听雨。<br>
+树挂灯笼，草食虫蝇。<br>
+是一首诗，一幅画，一片情？<br><br>
+
+
+胡<br>
+
+一地枯叶，满树荒鸦。<br>
+浮云过，功名有涯。<br>
+上山下海，人生冬夏。<br>
+叹发虽疏，心如初，我非他。<br><br>
+
+人事难料，需心宽体佳。<br>
+勤健脑，练的卢飞马。<br>
+朝阳晚霞，各写芳华。<br>
+拥一屋书，一园花，一个家。<br><br>
+ </p>
+  </div>
+</section>
+      </p>
+      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+        Contact Me
+      </button>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section class="about">
@@ -261,10 +414,10 @@ photo.jpg
       <div>
         <h2>About Me</h2>
         <p>
-          Please thiink, laugh and enjoy with me. 
+          Please thiink, laugh and enjoy with us. 
         </p>
         <p>
-          This site is a simple snapshot of who I am and what I care about.
+          This site is a simple snapshot of whomm we  areand what we care about.
         </p>
       </div>
       <div>
@@ -289,6 +442,16 @@ photo.jpg
       </form>
     </div>
   </section>
+<section class="article">
+  <div class="container article-grid">
+        
+
+
+  </div>
+</section>
+  
+
+
 
   <footer>
     © 2026 XDH. All rights reserved.
@@ -296,4 +459,3 @@ photo.jpg
 
 </body>
 </html>
-
