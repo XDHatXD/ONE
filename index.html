@@ -541,22 +541,15 @@
     </div>
 
   </section>
-  <!DOCTYPE html>
-<div class="metal-box">
-  <h3>Live Metal Prices (USD)</h3>
+ <h2>Live Metal Prices</h2>
 
-  <div class="metal-row">
-    <span>Gold (XAU)</span>
-    <span id="goldPrice">Loading...</span>
-  </div>
-
-  <div class="metal-row">
-    <span>Silver (XAG)</span>
-    <span id="silverPrice">Loading...</span>
-  </div>
-
-  <div class="metal-time" id="updateTime"></div>
+<div id="metal-prices">
+  <p>Gold: <span id="gold">Loading...</span></p>
+  <p>Silver: <span id="silver">Loading...</span></p>
+  <p>Platinum: <span id="platinum">Loading...</span></p>
 </div>
+
+<button onclick="getMetalPrices()">Refresh Prices</button>
 
 <section class="photo-section">
   <h2>Photos</h2>
@@ -721,4 +714,5 @@ getMetalPrices();
 
 </body>
 </html>
+
 
