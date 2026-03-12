@@ -541,15 +541,6 @@
     </div>
 
   </section>
- <h2>Live Metal Prices</h2>
-
-<div id="metal-prices">
-  <p>Gold: <span id="gold">Loading...</span></p>
-  <p>Silver: <span id="silver">Loading...</span></p>
-  <p>Platinum: <span id="platinum">Loading...</span></p>
-</div>
-
-<button onclick="getMetalPrices()">Refresh Prices</button>
 
 <section class="photo-section">
   <h2>Photos</h2>
@@ -685,34 +676,163 @@
     }
   });
 </script>
-<script>
-const apiKey = 13577f9b5376210ed22d57ad1e816a28;
+<!DOCTYPE html>
+<html>
+<head>
+<title>Live Metal Prices</title>
 
-async function getMetalPrices() {
-
-  const url = `https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=USD&currencies=XAU,XAG,XPT`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    const gold = (1 / data.rates.XAU).toFixed(2);
-    const silver = (1 / data.rates.XAG).toFixed(2);
-    const platinum = (1 / data.rates.XPT).toFixed(2);
-
-    document.getElementById("gold").innerText = "$" + gold + " / oz";
-    document.getElementById("silver").innerText = "$" + silver + " / oz";
-    document.getElementById("platinum").innerText = "$" + platinum + " / oz";
-
-  } catch (error) {
-    console.error("Error fetching metal prices:", error);
-  }
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#f4f4f4;
 }
-setInterval(getMetalPrices, 30000);
-getMetalPrices();
+
+h1{
+margin-top:40px;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+background:white;
+width:420px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:#333;
+color:white;
+}
+
+.up{
+color:green;
+font-weight:bold;
+}
+
+.down{
+color:red;
+font-weight:bold;
+}
+
+.refresh{
+margin-top:20px;
+padding:10px 20px;
+font-size:16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Live Precious Metal Prices</h1>
+
+<table>
+<tr>
+<th>Metal</th>
+<th>Price (USD / oz)</th>
+</tr>
+
+<tr>
+<td>Gold</td>
+<td id="gold">Loading...</td>
+</tr>
+
+<tr>
+<td>Silver</td>
+<td id="silver">Loading...</td>
+</tr>
+
+<tr>
+<td>Platinum</td>
+<td id="platinum">Loading...</td>
+</tr>
+
+<tr>
+<td>Palladium</td>
+<td id="palladium">Loading...</td>
+</tr>
+
+</table>
+
+<h3>Gold / Silver Ratio: <span id="ratio">Loading...</span></h3>
+
+<button class="refresh" onclick="getPrices()">Refresh</button>
+
+<script>
+
+const apiKey="YOUR_API_KEY";
+
+let lastPrices={};
+
+async function getPrices(){
+
+const url=`https://api.metalpriceapi.com/v1/latest?api_key=${apiKey}&base=USD&currencies=XAU,XAG,XPT,XPD`;
+
+try{
+
+const response=await fetch(url);
+const data=await response.json();
+
+const prices={
+gold:1/data.rates.XAU,
+silver:1/data.rates.XAG,
+platinum:1/data.rates.XPT,
+palladium:1/data.rates.XPD
+};
+
+updatePrice("gold",prices.gold);
+updatePrice("silver",prices.silver);
+updatePrice("platinum",prices.platinum);
+updatePrice("palladium",prices.palladium);
+
+const ratio=(prices.gold/prices.silver).toFixed(2);
+document.getElementById("ratio").innerText=ratio;
+
+lastPrices=prices;
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+function updatePrice(id,value){
+
+const element=document.getElementById(id);
+
+let className="";
+
+if(lastPrices[id]){
+
+if(value>lastPrices[id]) className="up";
+if(value<lastPrices[id]) className="down";
+
+}
+
+element.className=className;
+element.innerText="$"+value.toFixed(2);
+
+}
+
+getPrices();
+
+setInterval(getPrices,60000);
+
 </script>
 
 </body>
 </html>
+</body>
+</html>
+
 
 
